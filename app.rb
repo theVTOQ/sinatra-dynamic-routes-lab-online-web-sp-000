@@ -19,4 +19,29 @@ class App < Sinatra::Base
     @num.times {string << @phrase}
     string
   end
+
+  get '/say/:word1/:word2/:word3/:word4/:word5' do
+    string = ""
+    params.each {|k, v| string << "#{v} "}
+    string
+  end
+
+  get '/:operation/:number1/:number2' do
+    @operation = params[:operation]
+    @num1 = params[:number1].to_i
+    @num2 = params[:number2].to_i
+
+    case @operation
+    when "add"
+      return "#{@num1 + @num2}"
+    when "subtract"
+      return "#{@num1 - @num2}"
+    when "multiply"
+      return "#{@num1 * @num2}"
+    when "divide"
+      return "#{@num1 / @num2}"
+    else
+      return "Invalid operation specified."
+    end
+  end
 end

@@ -30,6 +30,7 @@ class App < Sinatra::Base
         string << " "
       end
     end
+    string
   end
 
   get '/:operation/:number1/:number2' do

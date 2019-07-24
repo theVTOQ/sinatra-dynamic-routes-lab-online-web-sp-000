@@ -24,7 +24,7 @@ class App < Sinatra::Base
     string = ""
     params.each do |k, v|
       string << v
-      if k == "word5"
+      if k == :word5
         string << "."
       else
         string << " "
